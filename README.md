@@ -1,6 +1,7 @@
 # 1.2--Exceptions-Nivellx
 
 NIVELL 1
+
 Crea una classe anomenada "Producte" amb els atributs nom i preu, i una altra classe anomenada "Venda". Aquesta classe té com a atributs una col·lecció de productes i el preu total de la venda.
 
 La classe "Venda", té un mètode anomenat calcularTotal() que llança l’excepció personalitzada "VendaBuidaException" i mostra per pantalla “Per fer una venda primer has d’afegir productes” si la col·lecció de productes està buida. Si la col·lecció té productes, llavors ha de recórrer la col·lecció i guardar la suma de tots els preus dels productes a l’atribut preu total de la venda.
@@ -10,6 +11,7 @@ L’excepció personalitzada "VendaBuidaException" ha de ser filla de la classe 
 Escriu el codi necessari per a generar i capturar una excepció de tipus "IndexOutOfBoundsException".
 
 NIVELL 2
+
 Crea una classe anomenada "Entrada". Aquesta classe ha de servir per controlar les diferents excepcions que poden aparèixer en Java a l’hora d’introduir dades per teclat utilitzant la classe Scanner.
 
 El primer que s’ha de fer és instanciar un objecte de la classe Scanner i a partir d’aquí, crear mètodes estàtics per llegir els diferents tipus de dades des del teclat. 
@@ -39,6 +41,7 @@ public static String llegirString(String missatge);
 public static boolean llegirSiNo(String missatge), si l’usuari/ària introdueix “s”, retorna “true”, si l’usuari/ària introdueix “n”, retorna “false”.
 
 NIVELL 3
+
 Una famosa empresa de cinemes ens ha demanat que desenvolupem una aplicació per a la reserva de seients en els seus cinemes. L’aplicació serà utilitzada pels venedors/es a l’hora de vendre les entrades.
 
 Funcionament
