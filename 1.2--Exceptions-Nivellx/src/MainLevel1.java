@@ -6,6 +6,6 @@ public class MainLevel1 {
 
         MainMenu menu = new MainMenu();
         UIController controller = new UIController(menu);
-        controller.StartProductManagement();
+        controller.startProductManagement();
     }
 }
