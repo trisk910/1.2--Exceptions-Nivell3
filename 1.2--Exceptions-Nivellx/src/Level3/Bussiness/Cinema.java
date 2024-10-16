@@ -1,5 +1,7 @@
 package Level3.Bussiness;
 
+import Level3.Persistance.CatchExceptions;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,7 +14,7 @@ public class Cinema {
 
     public Cinema() {
         this.seatsManager = new SeatsManager();
-        this.cinemaManager = new CinemaManager();
+        this.cinemaManager = new CinemaManager(this);
         createCinema();
     }
 
@@ -34,14 +36,11 @@ public class Cinema {
 
     private void createCinema(){
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Introdueix el nombre de files: ");
-        this.rows = scanner.nextInt();
         boolean errorRows1 = false;
         int rows = 0;
         while (!errorRows1) {
             try {
-                System.out.print("Introdueix el nombre de seients per fila: ");
+                System.out.print("Introdueix el nombre de files: ");
                 rows = scanner.nextInt();
                 errorRows1 = true;
             } catch (InputMismatchException e) {
@@ -64,8 +63,31 @@ public class Cinema {
             }
         }
         this.seatsPerRow = seatsPerRow2;
+        System.out.println();
     }
-    public void Start() {
-
+    public void start() throws CatchExceptions {
+        int option;
+        do {
+            option = cinemaManager.menu();
+            switch (option) {
+                case 1:
+                    cinemaManager.showAllSeats();
+                    break;
+                case 2:
+                    cinemaManager.showSeatPerson();
+                    break;
+                case 3:
+                    cinemaManager.bookSeats();
+                    break;
+                case 4:
+                    cinemaManager.bookCancelation();
+                    break;
+                case 5:
+                    cinemaManager.cancelAllSeats();
+                    break;
+                default:
+                    System.out.println("Opció no vàlida.");
+            }
+        } while (option != 6);
     }
 }

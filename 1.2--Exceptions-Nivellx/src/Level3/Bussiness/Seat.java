@@ -1,14 +1,14 @@
 package Level3.Bussiness;
 
 public class Seat {
-    private int row;
-    private int seat;
-    private String bookName;
+    private final int row;
+    private final int seat;
+    private final String bookName;
 
-    public Seat(int fila, int seient, String nomReserva) {
-        this.row = fila;
-        this.seat = seient;
-        this.bookName = nomReserva;
+    public Seat(int row, int seat, String bookName) {
+        this.row = row;
+        this.seat = seat;
+        this.bookName = bookName;
     }
 
     public int getRow() {
@@ -25,9 +25,10 @@ public class Seat {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || !(obj instanceof Seat)) return false;
-        Seat seat = (Seat) obj;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Seat seat))
+            return false;
         return row == seat.row && this.seat == seat.seat;
     }
 
