@@ -1,6 +1,6 @@
 package Level3.Bussiness;
 
-import Level3.Persistance.CatchExceptions;
+import Level3.Persistance.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -65,25 +65,56 @@ public class Cinema {
         this.seatsPerRow = seatsPerRow2;
         System.out.println();
     }
-    public void start() throws CatchExceptions {
+    public void start() throws ExceptionAllSeatsOccupied, ExceptionWrongRow, ExceptionSeatOccupied, ExceptionEmptyList{
         int option;
         do {
             option = cinemaManager.menu();
             switch (option) {
                 case 1:
-                    cinemaManager.showAllSeats();
+                    try
+                    {
+                        cinemaManager.showAllSeats();
+                    }
+                    catch (ExceptionEmptyList e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
-                    cinemaManager.showSeatPerson();
+                    try
+                    {
+                        cinemaManager.showSeatPerson();
+                    }
+                    catch (ExceptionEmptyList e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
-                    cinemaManager.bookSeats();
+                    try
+                    {
+                        cinemaManager.bookSeats();
+                    }
+                    catch (ExceptionAllSeatsOccupied | ExceptionWrongRow | ExceptionSeatOccupied e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 4:
-                    cinemaManager.bookCancelation();
+                    try {
+                        cinemaManager.bookCancelation();
+                    } catch (ExceptionEmptyList e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 5:
-                    cinemaManager.cancelAllSeats();
+                    try {
+                        cinemaManager.cancelAllSeats();
+                    } catch (ExceptionEmptyList e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 6:
                     break;
                 default:
                     System.out.println("Opció no vàlida.");
